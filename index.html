@@ -310,24 +310,21 @@ body {
     </div>
 
     <div class="actions">
-      <!-- YES Button -->
-        <form name="date-responses" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-            onsubmit="handleSubmit(event, 'YES - Accepted the date invitation! 💕')">
-            <input type="hidden" name="response" value="YES - Accepted the date invitation! 💕" />
-            <input type="hidden" name="timestamp" value="" />
-            <input type="hidden" name="user-agent" value="" />
-            <button type="submit" class="btn btn-primary">yes 💕</button>
-        </form>
+      <!-- YES form -->
+      <form name="date-responses" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="response" value="YES - Accepted the date invitation! 💕" />
+        <input type="hidden" name="timestamp" value="" />
+        <input type="hidden" name="user-agent" value="" />
+        <button type="submit" class="btn btn-primary" onclick="fillMeta(this.form)">yes 💕</button>
+      </form>
 
-        <!-- NO Button -->
-        <form name="date-responses" method="POST" data-netlify="true" netlify-honeypot="bot-field"
-            onsubmit="handleSubmit(event, 'NO - Declined the date invitation 😢')">
-            <input type="hidden" name="response" value="NO - Declined the date invitation 😢" />
-            <input type="hidden" name="timestamp" value="" />
-            <input type="hidden" name="user-agent" value="" />
-            <button type="submit" class="btn btn-secondary">no</button>
-        </form>
-
+      <!-- NO form -->
+      <form name="date-responses" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="response" value="NO - Declined the date invitation 😢" />
+        <input type="hidden" name="timestamp" value="" />
+        <input type="hidden" name="user-agent" value="" />
+        <button type="submit" class="btn btn-secondary" onclick="fillMeta(this.form)">no</button>
+      </form>
     </div>
 
     <div class="footer">Made with my heart - harvey</div>
@@ -390,34 +387,17 @@ function showSadness(message) {
   setTimeout(() => { sadness.remove(); }, 3000);
 }
 
-// ✅ Handle Netlify AJAX submission + Debug logs
-async function handleSubmit(event, responseText) {
-  event.preventDefault(); // stop normal redirect
-  const form = event.target;
-  fillMeta(form);
-
-  const data = new FormData(form);
-
-  try {
-    await fetch("/", {
-      method: "POST",
-      body: new URLSearchParams(data).toString(),
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    });
-
-    // 🔍 Debug log
-    console.log("Form submitted:", responseText);
-
-    if (responseText.startsWith("YES")) {
+// Listen for form submissions to show animation
+document.addEventListener("submit", function (e) {
+  if (e.target.name === "date-responses") {
+    const resp = e.target.querySelector('[name="response"]').value;
+    if (resp.startsWith("YES")) {
       showSuccess("See you! 💕 Can’t wait for our date!");
     } else {
       showSadness("Maybe next time... 😔");
     }
-  } catch (err) {
-    console.error("Form submission error:", err);
-    alert("Something went wrong. Please try again.");
   }
-}
+});
 
 // URL params
 (function() {
@@ -434,8 +414,5 @@ async function handleSubmit(event, responseText) {
 for (let i = 0; i < 5; i++) setTimeout(createSparkle, i * 200);
 for (let i = 0; i < 3; i++) setTimeout(createFloatingHeart, i * 500);
 </script>
-
-
-
 </body>
 </html>
