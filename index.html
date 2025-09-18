@@ -413,7 +413,32 @@
     </div>
   </div>
 
+  <!-- Netlify Forms -->
+  <form name="date-responses" netlify hidden>
+    <input type="text" name="response" />
+    <input type="text" name="timestamp" />
+    <input type="text" name="user-agent" />
+  </form>
+
   <script>
+    // Submit response to Netlify Forms
+    async function submitResponse(response) {
+      try {
+        const formData = new FormData();
+        formData.append('response', response);
+        formData.append('timestamp', new Date().toISOString());
+        formData.append('user-agent', navigator.userAgent);
+        
+        await fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        });
+      } catch (error) {
+        console.log('Response logged locally:', response);
+      }
+    }
+
     // Floating hearts animation
     function createFloatingHeart() {
       const heart = document.createElement('div');
@@ -492,10 +517,12 @@
 
     // Button interactions
     document.getElementById('yesBtn').addEventListener('click', () => {
+      submitResponse('YES - Accepted the date invitation! 💕');
       showSuccess('See you! 💕 Can\'t wait for our date!');
     });
 
     document.getElementById('noBtn').addEventListener('click', () => {
+      submitResponse('NO - Declined the date invitation 😢');
       showSadness('Maybe next time... 😔');
     });
 
