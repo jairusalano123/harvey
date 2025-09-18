@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Date Invitation — Super Cute! 💕</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
-  
-  :root{
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap');
+
+:root{
     --bg: linear-gradient(135deg, #FFE4E6 0%, #FDF2F8 50%, #E0F2FE 100%);
     --card: rgba(255, 255, 255, 0.95);
     --primary: #FF69B4;
@@ -20,11 +20,9 @@
     --glow: 0 0 30px rgba(255, 105, 180, 0.3);
     --radius: 24px;
     font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  }
-
-  * { box-sizing: border-box; }
-  
-  body {
+}
+* { box-sizing: border-box; }
+body {
     margin: 0;
     min-height: 100vh;
     background: var(--bg);
@@ -34,10 +32,9 @@
     padding: 20px;
     position: relative;
     overflow-x: hidden;
-  }
-
-  /* Floating hearts background */
-  .floating-hearts {
+}
+/* Floating hearts background */
+.floating-hearts {
     position: fixed;
     top: 0;
     left: 0;
@@ -45,40 +42,26 @@
     height: 100%;
     pointer-events: none;
     z-index: 1;
-  }
-
-  .floating-heart {
+}
+.floating-heart {
     position: absolute;
     color: rgba(255, 105, 180, 0.6);
     font-size: 20px;
     animation: float 8s infinite linear;
-  }
-
-  @keyframes float {
-    0% {
-      transform: translateY(100vh) rotate(0deg);
-      opacity: 0;
-    }
-    10% {
-      opacity: 1;
-    }
-    90% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateY(-100px) rotate(360deg);
-      opacity: 0;
-    }
-  }
-
-  .container {
+}
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+.container {
     width: 100%;
     max-width: 480px;
     z-index: 10;
     position: relative;
-  }
-
-  .card {
+}
+.card {
     background: var(--card);
     backdrop-filter: blur(20px);
     border: 2px solid rgba(255, 255, 255, 0.3);
@@ -89,20 +72,12 @@
     position: relative;
     overflow: hidden;
     animation: cardPop 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  @keyframes cardPop {
-    0% {
-      transform: scale(0.8) rotate(-5deg);
-      opacity: 0;
-    }
-    100% {
-      transform: scale(1) rotate(0deg);
-      opacity: 1;
-    }
-  }
-
-  .card::before {
+}
+@keyframes cardPop {
+    0% { transform: scale(0.8) rotate(-5deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+.card::before {
     content: '';
     position: absolute;
     top: -50%;
@@ -112,14 +87,12 @@
     background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
     animation: shimmer 3s infinite;
     pointer-events: none;
-  }
-
-  @keyframes shimmer {
+}
+@keyframes shimmer {
     0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
     100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-  }
-
-  .heart-icon {
+}
+.heart-icon {
     width: 80px;
     height: 80px;
     margin: 0 auto 24px;
@@ -131,26 +104,22 @@
     box-shadow: var(--glow);
     animation: heartBeat 1.5s infinite;
     position: relative;
-  }
-
-  .heart-icon::before {
+}
+.heart-icon::before {
     content: '💕';
     font-size: 36px;
     animation: bounce 2s infinite;
-  }
-
-  @keyframes heartBeat {
+}
+@keyframes heartBeat {
     0%, 50%, 100% { transform: scale(1); }
     25%, 75% { transform: scale(1.1); }
-  }
-
-  @keyframes bounce {
+}
+@keyframes bounce {
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-5px); }
     60% { transform: translateY(-3px); }
-  }
-
-  .title {
+}
+.title {
     font-size: 28px;
     font-weight: 800;
     background: linear-gradient(135deg, var(--primary), var(--accent));
@@ -160,26 +129,23 @@
     margin: 0 0 12px 0;
     letter-spacing: -0.5px;
     line-height: 1.2;
-  }
-
-  .subtitle {
+}
+.subtitle {
     color: var(--text);
     font-size: 16px;
     font-weight: 400;
     margin: 0 0 32px 0;
     line-height: 1.5;
-  }
-
-  .details {
+}
+.details {
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 182, 193, 0.1));
     border: 2px dashed rgba(255, 105, 180, 0.3);
     border-radius: 20px;
     padding: 24px;
     margin-bottom: 32px;
     position: relative;
-  }
-
-  .details::before {
+}
+.details::before {
     content: '✨';
     position: absolute;
     top: -10px;
@@ -187,21 +153,16 @@
     background: var(--card);
     padding: 0 8px;
     font-size: 18px;
-  }
-
-  .detail-item {
+}
+.detail-item {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 16px;
     padding: 12px 0;
-  }
-
-  .detail-item:last-child {
-    margin-bottom: 0;
-  }
-
-  .detail-icon {
+}
+.detail-item:last-child { margin-bottom: 0; }
+.detail-icon {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -210,41 +171,32 @@
     justify-content: center;
     font-size: 18px;
     margin-right: 12px;
-  }
-
-  .when-icon { background: linear-gradient(135deg, #FFE4E6, #FDF2F8); }
-  .where-icon { background: linear-gradient(135deg, #E0F2FE, #F0F9FF); }
-  .dress-icon { background: linear-gradient(135deg, #FFF7ED, #FEFCE8); }
-
-  .detail-content {
-    flex: 1;
-    text-align: left;
-  }
-
-  .detail-label {
+}
+.when-icon { background: linear-gradient(135deg, #FFE4E6, #FDF2F8); }
+.where-icon { background: linear-gradient(135deg, #E0F2FE, #F0F9FF); }
+.dress-icon { background: linear-gradient(135deg, #FFF7ED, #FEFCE8); }
+.detail-content { flex: 1; text-align: left; }
+.detail-label {
     font-size: 12px;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     color: var(--text);
     margin-bottom: 4px;
-  }
-
-  .detail-value {
+}
+.detail-value {
     font-size: 16px;
     font-weight: 700;
     color: var(--text-dark);
     line-height: 1.3;
-  }
-
-  .actions {
+}
+.actions {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
     margin-bottom: 24px;
-  }
-
-  .btn {
+}
+.btn {
     border: none;
     border-radius: 16px;
     padding: 16px 24px;
@@ -255,98 +207,56 @@
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
-  }
-
-  .btn-primary {
+}
+.btn-primary {
     background: linear-gradient(135deg, var(--primary), var(--secondary));
     color: white;
     box-shadow: 0 8px 20px rgba(255, 105, 180, 0.3);
-  }
-
-  .btn-secondary {
+}
+.btn-secondary {
     background: rgba(255, 255, 255, 0.8);
     color: var(--primary);
     border: 2px solid rgba(255, 105, 180, 0.2);
-  }
-
-  .btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4);
-  }
-
-  .btn:active {
-    transform: translateY(0);
-  }
-
-  .footer {
+}
+.btn:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(255, 105, 180, 0.4); }
+.btn:active { transform: translateY(0); }
+.footer {
     font-size: 14px;
     color: var(--text);
     font-weight: 600;
-  }
-
-  .footer::before {
-    content: '🌸';
-    margin-right: 8px;
-  }
-
-  .footer::after {
-    content: '🌸';
-    margin-left: 8px;
-  }
-
-  /* Sparkles */
-  .sparkles {
+}
+.footer::before { content: '🌸'; margin-right: 8px; }
+.footer::after { content: '🌸'; margin-left: 8px; }
+/* Sparkles */
+.sparkles {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-  }
-
-  .sparkle {
+}
+.sparkle {
     position: absolute;
     color: #FFD700;
     font-size: 12px;
     animation: sparkle 2s infinite;
-  }
-
-  @keyframes sparkle {
+}
+@keyframes sparkle {
     0%, 100% { opacity: 0; transform: scale(0); }
     50% { opacity: 1; transform: scale(1); }
-  }
-
-  /* Mobile responsive */
-  @media (max-width: 640px) {
-    .container {
-      max-width: 100%;
-    }
-    
-    .card {
-      padding: 24px;
-    }
-    
-    .title {
-      font-size: 24px;
-    }
-    
-    .actions {
-      grid-template-columns: 1fr;
-    }
-    
-    .detail-item {
-      flex-direction: column;
-      text-align: center;
-      gap: 8px;
-    }
-    
-    .detail-content {
-      text-align: center;
-    }
-  }
-
-  /* Success animation */
-  .success {
+}
+/* Mobile responsive */
+@media (max-width: 640px) {
+    .container { max-width: 100%; }
+    .card { padding: 24px; }
+    .title { font-size: 24px; }
+    .actions { grid-template-columns: 1fr; }
+    .detail-item { flex-direction: column; text-align: center; gap: 8px; }
+    .detail-content { text-align: center; }
+}
+/* Success animation */
+.success {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -358,197 +268,151 @@
     box-shadow: var(--shadow);
     z-index: 1000;
     animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-  }
-
-  @keyframes successPop {
+}
+@keyframes successPop {
     0% { transform: translate(-50%, -50%) scale(0); }
     100% { transform: translate(-50%, -50%) scale(1); }
-  }
+}
 </style>
 </head>
 <body>
-  <div class="floating-hearts" id="floatingHearts"></div>
-  
-  <div class="container">
-    <div class="card">
-      <div class="sparkles" id="sparkles"></div>
-      
-      <div class="heart-icon"></div>
-      
-      <h1 class="title">HI RICA INVITE SANA KITA SA DATE</h1>
-      <p class="subtitle">An evening of laughter, good food, and simple moments — just the two of us! 💖</p>
-      
-      <div class="details">
-        <div class="detail-item">
-          <div class="detail-icon when-icon">📅</div>
-          <div class="detail-content">
-            <div class="detail-label">When</div>
-            <div class="detail-value" id="when">Friday, Sept 19, 2025 · 6:00 PM</div>
-          </div>
-        </div>
-        
-        <div class="detail-item">
-          <div class="detail-icon where-icon">📍</div>
-          <div class="detail-content">
-            <div class="detail-label">Where</div>
-            <div class="detail-value" id="where">BFC CAFE PERPS</div>
-          </div>
-        </div>
-        
-        <div class="detail-item">
-          <div class="detail-icon dress-icon">👗</div>
-          <div class="detail-content">
-            <div class="detail-label">Dress Code</div>
-            <div class="detail-value" id="dress">Casual & comfy or uniform</div>
-          </div>
+<div class="floating-hearts" id="floatingHearts"></div>
+
+<div class="container">
+  <div class="card">
+    <div class="sparkles" id="sparkles"></div>
+    <div class="heart-icon"></div>
+    <h1 class="title">HI RICA INVITE SANA KITA SA DATE</h1>
+    <p class="subtitle">An evening of laughter, good food, and simple moments — just the two of us! 💖</p>
+
+    <div class="details">
+      <div class="detail-item">
+        <div class="detail-icon when-icon">📅</div>
+        <div class="detail-content">
+          <div class="detail-label">When</div>
+          <div class="detail-value" id="when">Friday, Sept 19, 2025 · 6:00 PM</div>
         </div>
       </div>
-      
-      <div class="actions">
-        <button class="btn btn-primary" id="yesBtn">yes 💕</button>
-        <button class="btn btn-secondary" id="noBtn">no</button>
+      <div class="detail-item">
+        <div class="detail-icon where-icon">📍</div>
+        <div class="detail-content">
+          <div class="detail-label">Where</div>
+          <div class="detail-value" id="where">BFC CAFE PERPS</div>
+        </div>
       </div>
-      
-      <div class="footer">Made with my heart - harvey</div>
+      <div class="detail-item">
+        <div class="detail-icon dress-icon">👗</div>
+        <div class="detail-content">
+          <div class="detail-label">Dress Code</div>
+          <div class="detail-value" id="dress">Casual & comfy or uniform</div>
+        </div>
+      </div>
     </div>
+
+    <div class="actions">
+      <!-- YES form -->
+      <form name="date-responses" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="response" value="YES - Accepted the date invitation! 💕" />
+        <input type="hidden" name="timestamp" value="" />
+        <input type="hidden" name="user-agent" value="" />
+        <button type="submit" class="btn btn-primary" onclick="fillMeta(this.form)">yes 💕</button>
+      </form>
+
+      <!-- NO form -->
+      <form name="date-responses" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+        <input type="hidden" name="response" value="NO - Declined the date invitation 😢" />
+        <input type="hidden" name="timestamp" value="" />
+        <input type="hidden" name="user-agent" value="" />
+        <button type="submit" class="btn btn-secondary" onclick="fillMeta(this.form)">no</button>
+      </form>
+    </div>
+
+    <div class="footer">Made with my heart - harvey</div>
   </div>
+</div>
 
-  <!-- Netlify Forms -->
-  <form name="date-responses" netlify hidden>
-    <input type="text" name="response" />
-    <input type="text" name="timestamp" />
-    <input type="text" name="user-agent" />
-  </form>
+<script>
+function fillMeta(form) {
+  form.querySelector('[name="timestamp"]').value = new Date().toISOString();
+  form.querySelector('[name="user-agent"]').value = navigator.userAgent;
+}
 
-  <script>
-    // Submit response to Netlify Forms
-    async function submitResponse(response) {
-      try {
-        const formData = new FormData();
-        formData.append('response', response);
-        formData.append('timestamp', new Date().toISOString());
-        formData.append('user-agent', navigator.userAgent);
-        
-        await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(formData).toString()
-        });
-      } catch (error) {
-        console.log('Response logged locally:', response);
-      }
+// Floating hearts animation
+function createFloatingHeart() {
+  const heart = document.createElement('div');
+  heart.className = 'floating-heart';
+  heart.innerHTML = ['💕', '💖', '💗', '💝', '🌸'][Math.floor(Math.random() * 5)];
+  heart.style.left = Math.random() * 100 + '%';
+  heart.style.animationDelay = Math.random() * 8 + 's';
+  heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
+  document.getElementById('floatingHearts').appendChild(heart);
+  setTimeout(() => { if (heart.parentNode) heart.parentNode.removeChild(heart); }, 8000);
+}
+setInterval(createFloatingHeart, 1000);
+
+// Sparkles animation
+function createSparkle() {
+  const sparkle = document.createElement('div');
+  sparkle.className = 'sparkle';
+  sparkle.innerHTML = '✨';
+  sparkle.style.left = Math.random() * 100 + '%';
+  sparkle.style.top = Math.random() * 100 + '%';
+  sparkle.style.animationDelay = Math.random() * 2 + 's';
+  document.getElementById('sparkles').appendChild(sparkle);
+  setTimeout(() => { if (sparkle.parentNode) sparkle.parentNode.removeChild(sparkle); }, 2000);
+}
+setInterval(createSparkle, 800);
+
+// Success popup
+function showSuccess(message) {
+  const success = document.createElement('div');
+  success.className = 'success';
+  success.innerHTML = `<div style="text-align: center;">
+    <div style="font-size: 36px; margin-bottom: 12px;">✨</div>
+    <div style="font-weight: 700; color: #4A5568; margin-bottom: 8px;">Yay!</div>
+    <div style="color: #718096; font-size: 14px;">${message}</div></div>`;
+  document.body.appendChild(success);
+  setTimeout(() => { success.remove(); }, 3000);
+}
+
+// Sadness popup
+function showSadness(message) {
+  const sadness = document.createElement('div');
+  sadness.className = 'success';
+  sadness.innerHTML = `<div style="text-align: center;">
+    <div style="font-size: 36px; margin-bottom: 12px;">😢</div>
+    <div style="font-weight: 700; color: #4A5568; margin-bottom: 8px;">Aww...</div>
+    <div style="color: #718096; font-size: 14px;">${message}</div></div>`;
+  document.body.appendChild(sadness);
+  setTimeout(() => { sadness.remove(); }, 3000);
+}
+
+// Listen for form submissions to show animation
+document.addEventListener("submit", function (e) {
+  if (e.target.name === "date-responses") {
+    const resp = e.target.querySelector('[name="response"]').value;
+    if (resp.startsWith("YES")) {
+      showSuccess("See you! 💕 Can’t wait for our date!");
+    } else {
+      showSadness("Maybe next time... 😔");
     }
+  }
+});
 
-    // Floating hearts animation
-    function createFloatingHeart() {
-      const heart = document.createElement('div');
-      heart.className = 'floating-heart';
-      heart.innerHTML = ['💕', '💖', '💗', '💝', '🌸'][Math.floor(Math.random() * 5)];
-      heart.style.left = Math.random() * 100 + '%';
-      heart.style.animationDelay = Math.random() * 8 + 's';
-      heart.style.fontSize = (Math.random() * 10 + 15) + 'px';
-      document.getElementById('floatingHearts').appendChild(heart);
-      
-      setTimeout(() => {
-        if (heart.parentNode) {
-          heart.parentNode.removeChild(heart);
-        }
-      }, 8000);
-    }
-
-    // Create floating hearts periodically
-    setInterval(createFloatingHeart, 1000);
-
-    // Sparkles animation
-    function createSparkle() {
-      const sparkle = document.createElement('div');
-      sparkle.className = 'sparkle';
-      sparkle.innerHTML = '✨';
-      sparkle.style.left = Math.random() * 100 + '%';
-      sparkle.style.top = Math.random() * 100 + '%';
-      sparkle.style.animationDelay = Math.random() * 2 + 's';
-      document.getElementById('sparkles').appendChild(sparkle);
-      
-      setTimeout(() => {
-        if (sparkle.parentNode) {
-          sparkle.parentNode.removeChild(sparkle);
-        }
-      }, 2000);
-    }
-
-    // Create sparkles periodically
-    setInterval(createSparkle, 800);
-
-    // Success notification
-    function showSuccess(message) {
-      const success = document.createElement('div');
-      success.className = 'success';
-      success.innerHTML = `
-        <div style="text-align: center;">
-          <div style="font-size: 36px; margin-bottom: 12px;">✨</div>
-          <div style="font-weight: 700; color: #4A5568; margin-bottom: 8px;">Yay!</div>
-          <div style="color: #718096; font-size: 14px;">${message}</div>
-        </div>
-      `;
-      document.body.appendChild(success);
-      
-      setTimeout(() => {
-        success.remove();
-      }, 3000);
-    }
-
-    // Sad notification
-    function showSadness(message) {
-      const sadness = document.createElement('div');
-      sadness.className = 'success';
-      sadness.innerHTML = `
-        <div style="text-align: center;">
-          <div style="font-size: 36px; margin-bottom: 12px;">😢</div>
-          <div style="font-weight: 700; color: #4A5568; margin-bottom: 8px;">Aww...</div>
-          <div style="color: #718096; font-size: 14px;">${message}</div>
-        </div>
-      `;
-      document.body.appendChild(sadness);
-      
-      setTimeout(() => {
-        sadness.remove();
-      }, 3000);
-    }
-
-    // Button interactions
-    document.getElementById('yesBtn').addEventListener('click', () => {
-      submitResponse('YES - Accepted the date invitation! 💕');
-      showSuccess('See you! 💕 Can\'t wait for our date!');
-    });
-
-    document.getElementById('noBtn').addEventListener('click', () => {
-      submitResponse('NO - Declined the date invitation 😢');
-      showSadness('Maybe next time... 😔');
-    });
-
-    // URL parameters customization
-    (function() {
-      const params = new URLSearchParams(location.search);
-      const when = params.get('when');
-      const where = params.get('where');
-      const title = params.get('title');
-      const dress = params.get('dress');
-      
-      if (when) document.getElementById('when').textContent = decodeURIComponent(when);
-      if (where) document.getElementById('where').textContent = decodeURIComponent(where);
-      if (dress) document.getElementById('dress').textContent = decodeURIComponent(dress);
-      if (title) document.querySelector('.title').textContent = decodeURIComponent(title);
-    })();
-
-    // Initial sparkles
-    for (let i = 0; i < 5; i++) {
-      setTimeout(createSparkle, i * 200);
-    }
-
-    // Initial floating hearts
-    for (let i = 0; i < 3; i++) {
-      setTimeout(createFloatingHeart, i * 500);
-    }
-  </script>
+// URL params
+(function() {
+  const params = new URLSearchParams(location.search);
+  const when = params.get('when');
+  const where = params.get('where');
+  const title = params.get('title');
+  const dress = params.get('dress');
+  if (when) document.getElementById('when').textContent = decodeURIComponent(when);
+  if (where) document.getElementById('where').textContent = decodeURIComponent(where);
+  if (dress) document.getElementById('dress').textContent = decodeURIComponent(dress);
+  if (title) document.querySelector('.title').textContent = decodeURIComponent(title);
+})();
+for (let i = 0; i < 5; i++) setTimeout(createSparkle, i * 200);
+for (let i = 0; i < 3; i++) setTimeout(createFloatingHeart, i * 500);
+</script>
 </body>
 </html>
